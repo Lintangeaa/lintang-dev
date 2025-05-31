@@ -32,6 +32,7 @@ body {
   background: linear-gradient(rgba(33, 37, 41, 0.9), rgba(33, 37, 41, 0.9));
   position: relative;
   overflow: hidden;
+  padding: 2rem 0;
 }
 
 .hero-section::before {
@@ -50,6 +51,180 @@ body {
   }
   to {
     transform: rotate(360deg);
+  }
+}
+
+/* Responsive Hero Text */
+.hero-section h1 {
+  font-size: clamp(2rem, 8vw, 4rem);
+  line-height: 1.2;
+  margin-bottom: 1rem;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
+  white-space: normal;
+}
+
+.hero-section h2 {
+  font-size: clamp(1.2rem, 5vw, 2rem);
+  line-height: 1.3;
+  margin-bottom: 1.5rem;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.hero-section .lead {
+  font-size: clamp(1rem, 3vw, 1.25rem);
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+/* Mobile Optimizations */
+@media (max-width: 767.98px) {
+  .hero-section {
+    min-height: 90vh;
+    padding: 1rem 0;
+    text-align: center;
+  }
+
+  .hero-section h1 {
+    font-size: clamp(1.5rem, 8vw, 2.2rem);
+    line-height: 1.1;
+    margin-bottom: 1rem;
+    padding: 0 0.5rem;
+    word-break: break-word;
+    overflow-wrap: anywhere;
+  }
+
+  .hero-section h2 {
+    font-size: clamp(1rem, 5vw, 1.4rem);
+    line-height: 1.2;
+    margin-bottom: 1rem;
+    padding: 0 0.5rem;
+    word-break: break-word;
+  }
+
+  .hero-section .lead {
+    font-size: clamp(0.9rem, 4vw, 1.1rem);
+    margin-bottom: 1.5rem;
+    padding: 0 0.5rem;
+  }
+
+  .hero-section .btn {
+    font-size: 1rem;
+    padding: 0.75rem 1.5rem;
+  }
+}
+
+/* Tablet Optimizations */
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .hero-section h1 {
+    font-size: clamp(2.2rem, 6vw, 3.2rem);
+    line-height: 1.15;
+  }
+
+  .hero-section h2 {
+    font-size: clamp(1.4rem, 4vw, 1.8rem);
+  }
+
+  .hero-section .lead {
+    font-size: clamp(1.1rem, 3vw, 1.3rem);
+  }
+}
+
+/* Large Desktop Optimizations */
+@media (min-width: 1200px) {
+  .hero-section h1 {
+    font-size: 4rem;
+  }
+
+  .hero-section h2 {
+    font-size: 2.2rem;
+  }
+
+  .hero-section .lead {
+    font-size: 1.3rem;
+  }
+}
+
+/* Extra Small Devices */
+@media (max-width: 575.98px) {
+  .hero-section {
+    padding: 0.5rem 0;
+  }
+
+  .hero-section h1 {
+    font-size: clamp(1.3rem, 9vw, 1.8rem);
+    line-height: 1.1;
+    margin-bottom: 0.8rem;
+    word-break: break-word;
+    overflow-wrap: anywhere;
+    hyphens: auto;
+  }
+
+  .hero-section h2 {
+    font-size: clamp(0.9rem, 6vw, 1.2rem);
+    line-height: 1.2;
+    margin-bottom: 0.8rem;
+    word-break: break-word;
+  }
+
+  .hero-section .lead {
+    font-size: clamp(0.8rem, 4.5vw, 0.95rem);
+    margin-bottom: 1.2rem;
+    line-height: 1.4;
+  }
+
+  .hero-section .btn {
+    font-size: 0.9rem;
+    padding: 0.65rem 1.2rem;
+  }
+
+  .content-wrapper {
+    margin-right: 0;
+  }
+}
+
+/* Very Small Screens */
+@media (max-width: 375px) {
+  .hero-section h1 {
+    font-size: clamp(1.1rem, 10vw, 1.6rem);
+    line-height: 1.05;
+    padding: 0 0.25rem;
+    word-spacing: -0.1em;
+  }
+
+  .hero-section h2 {
+    font-size: clamp(0.8rem, 7vw, 1.1rem);
+    padding: 0 0.25rem;
+  }
+
+  .hero-section .lead {
+    font-size: clamp(0.75rem, 5vw, 0.9rem);
+    padding: 0 0.25rem;
+  }
+}
+
+/* Landscape Mobile */
+@media (max-width: 767.98px) and (orientation: landscape) {
+  .hero-section {
+    min-height: 100vh;
+    padding: 1rem 0;
+  }
+
+  .hero-section h1 {
+    font-size: clamp(1.2rem, 6vw, 1.8rem);
+    line-height: 1.1;
+    word-break: break-word;
+  }
+
+  .hero-section h2 {
+    font-size: clamp(0.9rem, 4vw, 1.3rem);
+  }
+
+  .hero-section .lead {
+    font-size: clamp(0.8rem, 3vw, 1rem);
+    margin-bottom: 1rem;
   }
 }
 
@@ -372,26 +547,76 @@ body {
 /* Responsive adjustments */
 @media (max-width: 768px) {
   .right-nav {
-    width: 50px;
-    padding: 12px 8px;
+    width: 45px;
+    padding: 10px 6px;
+    border-radius: 8px 0 0 8px;
   }
 
   .right-nav:hover {
-    width: 160px;
+    width: 150px;
   }
 
   .nav-link {
     padding: 8px;
-    margin: 3px 0;
+    margin: 2px 0;
   }
 
   .nav-link i {
-    font-size: 1.1rem;
+    font-size: 1rem;
   }
 
   .nav-link span {
+    font-size: 0.85rem;
+  }
+
+  .content-wrapper {
+    margin-right: 45px;
+  }
+}
+
+/* Extra small devices */
+@media (max-width: 575.98px) {
+  .right-nav {
+    width: 40px;
+    padding: 8px 4px;
+    right: 5px;
+  }
+
+  .right-nav:hover {
+    width: 140px;
+  }
+
+  .nav-link {
+    padding: 6px;
+    margin: 1px 0;
+  }
+
+  .nav-link i {
     font-size: 0.9rem;
-    padding-left: 30px;
+  }
+
+  .nav-link span {
+    font-size: 0.8rem;
+  }
+
+  .content-wrapper {
+    margin-right: 40px;
+  }
+}
+
+/* Landscape orientation adjustments */
+@media (max-width: 767.98px) and (orientation: landscape) {
+  .right-nav {
+    width: 35px;
+    padding: 6px 4px;
+  }
+
+  .right-nav:hover {
+    width: 130px;
+  }
+
+  .content-wrapper {
+    margin-right: 35px;
   }
 }
 
@@ -442,4 +667,159 @@ footer.aos-animate {
 
 .word:hover {
   color: var(--primary-color) !important;
+}
+
+/* General Section Responsive */
+@media (max-width: 767.98px) {
+  .section-title {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .py-5 {
+    padding: 2rem 0 !important;
+  }
+
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+/* About Section Responsive */
+@media (max-width: 767.98px) {
+  .profile-image-container {
+    max-width: 200px;
+    margin-bottom: 1.5rem;
+  }
+
+  .profile-image {
+    border-width: 3px;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .profile-image-container {
+    max-width: 180px;
+  }
+
+  .profile-image {
+    border-width: 2px;
+  }
+}
+
+/* Skills Section Responsive */
+@media (max-width: 767.98px) {
+  .skill-card {
+    height: 250px;
+    margin-bottom: 1rem;
+  }
+
+  .skill-card .card-body {
+    padding: 1.2rem;
+  }
+
+  .skill-card .card-title {
+    font-size: 1.1rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .skill-card ul li {
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .skill-card {
+    height: 220px;
+  }
+
+  .skill-card .card-body {
+    padding: 1rem;
+  }
+
+  .skill-card .card-title {
+    font-size: 1rem;
+  }
+
+  .skill-card ul li {
+    font-size: 0.85rem;
+    margin-bottom: 0.4rem;
+  }
+}
+
+/* Contact Section Responsive */
+@media (max-width: 767.98px) {
+  .form-control {
+    font-size: 1rem;
+    padding: 0.75rem;
+  }
+
+  .form-label {
+    font-size: 0.95rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .btn-custom {
+    width: 100%;
+    padding: 0.8rem;
+    font-size: 1rem;
+  }
+}
+
+/* Footer Responsive */
+@media (max-width: 767.98px) {
+  footer {
+    padding: 1.5rem 0 !important;
+  }
+
+  footer p {
+    font-size: 0.9rem;
+    margin: 0;
+  }
+}
+
+/* Responsive Name Styling */
+.responsive-name {
+  display: block;
+}
+
+.name-part {
+  display: inline-block;
+  white-space: nowrap;
+}
+
+/* Force line break on very small screens */
+@media (max-width: 480px) {
+  .responsive-name {
+    white-space: normal;
+  }
+
+  .name-part {
+    display: inline;
+    white-space: normal;
+  }
+
+  .name-part:first-child::after {
+    content: '\A';
+    white-space: pre;
+  }
+}
+
+/* Alternative: Force line break on extremely small screens */
+@media (max-width: 360px) {
+  .responsive-name {
+    text-align: center;
+    line-height: 1;
+  }
+
+  .name-part {
+    display: block;
+    white-space: normal;
+  }
+
+  .name-part:first-child::after {
+    content: '';
+  }
 }
