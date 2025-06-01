@@ -528,3 +528,182 @@ footer.aos-animate {
 .word:hover {
   color: var(--primary-color) !important;
 }
+
+/* Social Icons */
+.social-icon {
+  color: var(--light-color);
+  font-size: 1.5rem;
+  transition: color 0.3s ease;
+}
+
+.social-icon:hover {
+  color: var(--primary-color);
+}
+
+/* Chat Button */
+.chat-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: var(--primary-color);
+  color: white;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.8rem;
+  cursor: pointer;
+  box-shadow: 0 5px 15px rgba(25, 135, 84, 0.4);
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
+
+.chat-button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 8px 20px rgba(25, 135, 84, 0.6);
+}
+
+/* Chat Pop-up */
+.chat-popup {
+  position: fixed;
+  bottom: 90px; /* Position above the button */
+  right: 90px; /* Adjusted position to avoid navigation bar */
+  width: 300px;
+  height: 400px;
+  background-color: var(--dark-color);
+  border: 1px solid var(--primary-color);
+  border-radius: 10px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  visibility: hidden;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.3s ease-in-out;
+}
+
+.chat-popup.show {
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.chat-header {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #146c43;
+}
+
+.chat-header h4 {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.chat-header .close-chat {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.chat-body {
+  flex: 1;
+  padding: 15px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.chat-body p {
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 8px;
+  border-radius: 5px;
+  margin-bottom: 8px;
+  max-width: 80%;
+  align-self: flex-start;
+}
+
+.chat-footer {
+  padding: 10px;
+  border-top: 1px solid #343a40;
+  display: flex;
+  gap: 10px;
+}
+
+.chat-footer input {
+  flex: 1;
+  padding: 8px;
+  border: 1px solid var(--primary-color);
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--light-color);
+}
+
+.chat-footer input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 0.25rem rgba(25, 135, 84, 0.25);
+}
+
+.chat-footer button {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.chat-footer button:hover {
+  background-color: #146c43;
+}
+
+/* Project Card Styling */
+.project-card {
+  background-color: var(--dark-color);
+  border: 1px solid var(--primary-color);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  transform-origin: center;
+}
+
+.project-card:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 10px 25px rgba(25, 135, 84, 0.3);
+}
+
+.project-card .card-img-top {
+  object-fit: cover;
+  height: 200px; /* Fixed height for project images */
+}
+
+.project-card .card-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.project-card .card-title {
+  margin-bottom: 0.75rem;
+}
+
+.project-card .card-text {
+  flex: 1;
+  margin-bottom: 1rem;
+}
+
+.project-card .btn {
+  align-self: flex-start;
+}

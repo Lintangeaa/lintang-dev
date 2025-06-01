@@ -44,9 +44,9 @@
         <i class="fas fa-code"></i>
         <span>Skills</span>
       </a>
-      <a href="#contact" class="nav-link">
-        <i class="fas fa-envelope"></i>
-        <span>Contact</span>
+      <a href="#projects" class="nav-link">
+        <i class="fas fa-project-diagram"></i>
+        <span>Projects</span>
       </a>
     </nav>
 
@@ -78,12 +78,30 @@
                 Building innovative technology solutions with expertise in
                 Backend Development and Artificial Intelligence.
               </p>
+              <div
+                class="social-icons mt-4"
+                data-aos="fade-up"
+                data-aos-delay="500"
+              >
+                <a
+                  href="https://www.linkedin.com/in/lintangdandungprakoso25/"
+                  class="social-icon me-3"
+                  aria-label="LinkedIn"
+                  ><i class="fab fa-linkedin-in"></i
+                ></a>
+                <a
+                  href="https://github.com/Lintangeaa"
+                  class="social-icon"
+                  aria-label="GitHub"
+                  ><i class="fab fa-github"></i
+                ></a>
+              </div>
               <a
-                href="#contact"
-                class="btn btn-custom btn-lg"
+                href="#projects"
+                class="btn btn-custom btn-lg mt-4"
                 data-aos="fade-up"
                 data-aos-delay="600"
-                >Contact Me</a
+                >View Projects</a
               >
             </div>
           </div>
@@ -179,40 +197,42 @@
         </div>
       </section>
 
-      <!-- Contact Section -->
-      <section id="contact" class="py-5">
+      <!-- Projects Section -->
+      <section id="projects" class="py-5">
         <div class="container">
-          <h2 class="section-title" data-aos="fade-right">Contact Me</h2>
-          <div class="row">
-            <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
-              <form>
-                <div class="mb-3">
-                  <label for="name" class="form-label">Name</label>
-                  <input type="text" class="form-control" id="name" required />
+          <h2 class="section-title" data-aos="fade-right">My Projects</h2>
+          <div class="row g-4">
+            <!-- Project Item 1 -->
+            <div
+              class="col-md-6 col-lg-4"
+              data-aos="fade-up"
+              data-aos-delay="200"
+            >
+              <div class="card project-card h-100">
+                <img src="#" class="card-img-top" alt="Project Image" />
+                <div class="card-body">
+                  <h5 class="card-title text-success">Project Title 1</h5>
+                  <p class="card-text">Brief description of Project 1.</p>
+                  <a href="#" class="btn btn-custom btn-sm">View Project</a>
                 </div>
-                <div class="mb-3">
-                  <label for="email" class="form-label">Email</label>
-                  <input
-                    type="email"
-                    class="form-control"
-                    id="email"
-                    required
-                  />
-                </div>
-                <div class="mb-3">
-                  <label for="message" class="form-label">Message</label>
-                  <textarea
-                    class="form-control"
-                    id="message"
-                    rows="4"
-                    required
-                  ></textarea>
-                </div>
-                <button type="submit" class="btn btn-custom">
-                  Send Message
-                </button>
-              </form>
+              </div>
             </div>
+            <!-- Project Item 2 -->
+            <div
+              class="col-md-6 col-lg-4"
+              data-aos="fade-up"
+              data-aos-delay="300"
+            >
+              <div class="card project-card h-100">
+                <img src="#" class="card-img-top" alt="Project Image" />
+                <div class="card-body">
+                  <h5 class="card-title text-success">Project Title 2</h5>
+                  <p class="card-text">Brief description of Project 2.</p>
+                  <a href="#" class="btn btn-custom btn-sm">View Project</a>
+                </div>
+              </div>
+            </div>
+            <!-- Add more project items as needed -->
           </div>
         </div>
       </section>
@@ -223,6 +243,27 @@
           <p>&copy; 2024 Lintang Dandung Prakoso. All rights reserved.</p>
         </div>
       </footer>
+    </div>
+
+    <!-- Chat Button -->
+    <div class="chat-button">
+      <i class="fas fa-comments"></i>
+    </div>
+
+    <!-- Chat Pop-up -->
+    <div class="chat-popup">
+      <div class="chat-header">
+        <h4>Chat with Lintang</h4>
+        <button class="close-chat">&times;</button>
+      </div>
+      <div class="chat-body">
+        <!-- Chat messages will go here -->
+        <p>Hello! How can I help you today?</p>
+      </div>
+      <div class="chat-footer">
+        <input type="text" placeholder="Type a message..." />
+        <button>Send</button>
+      </div>
     </div>
 
     <!-- Bootstrap JS -->

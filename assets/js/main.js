@@ -33,73 +33,121 @@ function makeTextHoverable() {
   });
 }
 
+// Initialize all DOM elements after document loads
+document.addEventListener('DOMContentLoaded', () => {
+  // Initialize hoverable text
+  makeTextHoverable();
+
+  // Chat Pop-up Functionality
+  const chatButton = document.querySelector('.chat-button');
+  const chatPopup = document.querySelector('.chat-popup');
+  const closeChatButton = document.querySelector('.close-chat');
+
+  if (chatButton && chatPopup && closeChatButton) {
+    chatButton.addEventListener('click', () => {
+      chatPopup.classList.add('show');
+    });
+
+    closeChatButton.addEventListener('click', () => {
+      chatPopup.classList.remove('show');
+    });
+
+    // Close pop-up when clicking outside (optional)
+    window.addEventListener('click', (e) => {
+      if (!chatPopup.contains(e.target) && !chatButton.contains(e.target)) {
+        chatPopup.classList.remove('show');
+      }
+    });
+  }
+
+  // Initialize navigation functionality
+  initializeNavigation();
+
+  // Initial call to set active nav
+  setActiveNav();
+
+  // Initialize AOS
+  reinitializeAOS();
+});
+
 // Navbar scroll effect
 window.addEventListener('scroll', function () {
   const navbar = document.querySelector('.navbar');
-  if (window.scrollY > 50) {
+  if (navbar && window.scrollY > 50) {
     navbar.classList.add('scrolled');
-  } else {
+  } else if (navbar) {
     navbar.classList.remove('scrolled');
   }
 });
 
-// Handle active navigation state
-const sections = document.querySelectorAll('section');
-const navLinks = document.querySelectorAll('.nav-link');
+// Navigation functionality
+function initializeNavigation() {
+  const sections = document.querySelectorAll('section');
+  const navLinks = document.querySelectorAll('.nav-link');
 
-function setActiveNav() {
-  let currentSection = '';
-  const scrollPosition = window.scrollY + window.innerHeight / 3;
+  // Handle active navigation state
+  window.setActiveNav = function () {
+    let currentSection = '';
+    const scrollPosition = window.scrollY + window.innerHeight / 3;
 
-  sections.forEach((section) => {
-    const sectionTop = section.offsetTop;
-    const sectionHeight = section.clientHeight;
+    sections.forEach((section) => {
+      if (section) {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
 
-    if (
-      scrollPosition >= sectionTop &&
-      scrollPosition < sectionTop + sectionHeight
-    ) {
-      currentSection = section.getAttribute('id');
-    }
-  });
-
-  navLinks.forEach((link) => {
-    link.classList.remove('active');
-    if (link.getAttribute('href').slice(1) === currentSection) {
-      link.classList.add('active');
-    }
-  });
-
-  // Trigger AOS refresh when section changes
-  reinitializeAOS();
-}
-
-// Smooth scroll with offset
-navLinks.forEach((link) => {
-  link.addEventListener('click', (e) => {
-    e.preventDefault();
-    const targetId = link.getAttribute('href');
-    const targetSection = document.querySelector(targetId);
-    const offset = 0; // Adjust if needed
-
-    window.scrollTo({
-      top: targetSection.offsetTop - offset,
-      behavior: 'smooth',
+        if (
+          scrollPosition >= sectionTop &&
+          scrollPosition < sectionTop + sectionHeight
+        ) {
+          currentSection = section.getAttribute('id');
+        }
+      }
     });
 
-    // Ensure animations are triggered after scroll
-    setTimeout(reinitializeAOS, 300);
+    navLinks.forEach((link) => {
+      if (link && link.classList) {
+        link.classList.remove('active');
+        const href = link.getAttribute('href');
+        if (href && href.slice(1) === currentSection) {
+          link.classList.add('active');
+        }
+      }
+    });
+
+    // Trigger AOS refresh when section changes
+    reinitializeAOS();
+  };
+
+  // Smooth scroll with offset
+  navLinks.forEach((link) => {
+    if (link) {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const targetId = link.getAttribute('href');
+        const targetSection = document.querySelector(targetId);
+
+        if (targetSection) {
+          const offset = 0; // Adjust if needed
+
+          window.scrollTo({
+            top: targetSection.offsetTop - offset,
+            behavior: 'smooth',
+          });
+
+          // Ensure animations are triggered after scroll
+          setTimeout(reinitializeAOS, 300);
+        }
+      });
+    }
   });
-});
+}
 
 // Reinitialize AOS on window resize
 window.addEventListener('resize', reinitializeAOS);
 
-// Initialize active state
-document.addEventListener('DOMContentLoaded', () => {
-  makeTextHoverable();
-  setActiveNav();
-  reinitializeAOS();
+// Initialize active state on scroll
+window.addEventListener('scroll', () => {
+  if (window.setActiveNav) {
+    window.setActiveNav();
+  }
 });
-
-window.addEventListener('scroll', setActiveNav);
