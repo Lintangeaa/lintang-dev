@@ -396,45 +396,95 @@ body {
 
   /* Mobile Typography */
   .hero-section .display-4 {
-    font-size: 2.5rem !important;
+    font-size: 2.2rem !important;
     line-height: 1.2;
+    margin-bottom: 1rem !important;
   }
 
   .hero-section .h3 {
-    font-size: 1.5rem !important;
+    font-size: 1.4rem !important;
+    margin-bottom: 1rem !important;
   }
 
   .hero-section .lead {
     font-size: 1rem;
+    margin-bottom: 1.5rem !important;
   }
 
   /* Profile image adjustment */
   .profile-image-container {
     max-width: 180px;
+    margin-bottom: 2rem;
   }
 
   /* Skill cards mobile optimization */
   .skill-card {
-    height: 250px;
+    height: 240px;
+    margin-bottom: 1rem;
+  }
+
+  /* Project cards mobile optimization */
+  .project-card {
+    margin-bottom: 1rem;
+  }
+
+  .project-card .card-img-top {
+    height: 150px;
+  }
+
+  /* Section spacing */
+  .py-5 {
+    padding-top: 2.5rem !important;
+    padding-bottom: 2.5rem !important;
+  }
+
+  .section-title {
+    font-size: 1.75rem;
+    margin-bottom: 1.5rem;
+  }
+
+  /* Container padding */
+  .container {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  /* Chat popup mobile adjustment */
+  .chat-popup {
+    width: 250px;
+    height: 300px;
+    right: 60px;
+  }
+
+  .chat-button {
+    width: 50px;
+    height: 50px;
+    font-size: 1.5rem;
   }
 }
 
 @media (max-width: 576px) {
   /* Extra small devices (phones) */
+  .hero-section {
+    min-height: 90vh;
+    padding: 20px 0;
+  }
+
   .hero-section .display-4 {
-    font-size: 2rem !important;
+    font-size: 1.8rem !important;
     line-height: 1.1;
-    margin-bottom: 1rem !important;
+    margin-bottom: 0.75rem !important;
   }
 
   .hero-section .h3 {
-    font-size: 1.25rem !important;
-    margin-bottom: 1rem !important;
+    font-size: 1.2rem !important;
+    margin-bottom: 0.75rem !important;
   }
 
   .hero-section .lead {
     font-size: 0.95rem;
-    margin-bottom: 1.5rem !important;
+    margin-bottom: 1.25rem !important;
+    line-height: 1.4;
   }
 
   .btn-custom {
@@ -444,19 +494,272 @@ body {
 
   .profile-image-container {
     max-width: 150px;
+    margin-bottom: 1.5rem;
   }
 
   .skill-card {
-    height: 220px;
+    height: 200px;
+  }
+
+  .skill-card .card-body {
+    padding: 1rem;
+  }
+
+  .skill-card .card-title {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .skill-card ul li {
+    font-size: 0.85rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .project-card .card-img-top {
+    height: 120px;
+  }
+
+  .project-card .card-body {
+    padding: 1rem;
+  }
+
+  .project-card .card-title {
+    font-size: 1rem;
+  }
+
+  .project-card .card-text {
+    font-size: 0.9rem;
   }
 
   .section-title {
-    font-size: 1.75rem;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .py-5 {
+    padding-top: 2rem !important;
+    padding-bottom: 2rem !important;
+  }
+
+  .container {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  /* Social icons mobile */
+  .social-icon {
+    font-size: 1.3rem;
+    margin-right: 1rem;
+  }
+
+  /* Chat popup smaller */
+  .chat-popup {
+    width: 200px;
+    height: 270px;
+    right: 45px;
+    bottom: 65px;
+    max-width: calc(100vw - 50px);
+  }
+
+  .chat-button {
+    width: 42px;
+    height: 42px;
+    font-size: 1.2rem;
+    bottom: 12px;
+    right: 12px;
+  }
+
+  /* Chat content sizing for 576px */
+  .chat-popup .chat-header {
+    padding: 8px;
+  }
+
+  .chat-popup .chat-header h4 {
+    font-size: 0.95rem;
+  }
+
+  .chat-popup .chat-body {
+    padding: 12px;
+    font-size: 0.85rem;
+  }
+
+  .chat-popup .chat-footer {
+    padding: 8px;
+    gap: 8px;
+  }
+
+  .chat-popup .chat-footer input {
+    padding: 7px;
+    font-size: 0.85rem;
+  }
+
+  .chat-popup .chat-footer button {
+    padding: 7px 10px;
+    font-size: 0.85rem;
+    min-width: 50px;
+  }
+
+  /* Right nav mobile */
+  .right-nav {
+    width: 45px;
+    padding: 10px 6px;
+  }
+
+  .right-nav:hover {
+    width: 140px;
+  }
+
+  .nav-link i {
+    font-size: 1rem;
+  }
+
+  .nav-link span {
+    font-size: 0.85rem;
+    padding-left: 25px;
   }
 }
 
-@media (max-width: 375px) {
-  /* Very small phones */
+@media (max-width: 390px) {
+  /* Very small phones like iPhone SE, older Android */
+  .hero-section .display-4 {
+    font-size: 1.5rem !important;
+    line-height: 1.1;
+    margin-bottom: 0.5rem !important;
+  }
+
+  .hero-section .h3 {
+    font-size: 1.1rem !important;
+    margin-bottom: 0.5rem !important;
+  }
+
+  .hero-section .lead {
+    font-size: 0.9rem;
+    margin-bottom: 1rem !important;
+    line-height: 1.3;
+  }
+
+  .btn-custom {
+    font-size: 0.85rem;
+    padding: 0.4rem 0.8rem;
+  }
+
+  .container {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .profile-image-container {
+    max-width: 130px;
+  }
+
+  .skill-card {
+    height: 180px;
+  }
+
+  .skill-card .card-title {
+    font-size: 0.95rem;
+  }
+
+  .skill-card ul li {
+    font-size: 0.8rem;
+  }
+
+  .project-card .card-img-top {
+    height: 100px;
+  }
+
+  .project-card .card-title {
+    font-size: 0.95rem;
+  }
+
+  .project-card .card-text {
+    font-size: 0.85rem;
+  }
+
+  .section-title {
+    font-size: 1.3rem;
+  }
+
+  .py-5 {
+    padding-top: 1.5rem !important;
+    padding-bottom: 1.5rem !important;
+  }
+
+  /* Social icons very small */
+  .social-icon {
+    font-size: 1.2rem;
+  }
+
+  /* Chat elements very small */
+  .chat-popup {
+    width: 180px;
+    height: 250px;
+    right: 40px;
+    bottom: 55px;
+    max-width: calc(100vw - 45px);
+  }
+
+  .chat-button {
+    width: 38px;
+    height: 38px;
+    font-size: 1rem;
+    bottom: 8px;
+    right: 8px;
+  }
+
+  /* Chat popup content adjustments for small screens */
+  .chat-popup .chat-header h4 {
+    font-size: 0.9rem;
+  }
+
+  .chat-popup .chat-body {
+    padding: 10px;
+    font-size: 0.8rem;
+  }
+
+  .chat-popup .chat-footer {
+    padding: 8px;
+    gap: 6px;
+  }
+
+  .chat-popup .chat-footer input {
+    padding: 6px;
+    font-size: 0.8rem;
+  }
+
+  .chat-popup .chat-footer button {
+    padding: 6px 8px;
+    font-size: 0.8rem;
+    min-width: 45px;
+  }
+
+  /* Right nav very small */
+  .right-nav {
+    width: 40px;
+    padding: 8px 4px;
+  }
+
+  .right-nav:hover {
+    width: 120px;
+  }
+
+  .nav-link {
+    padding: 6px;
+    margin: 2px 0;
+  }
+
+  .nav-link i {
+    font-size: 0.9rem;
+  }
+
+  .nav-link span {
+    font-size: 0.8rem;
+    padding-left: 20px;
+  }
+}
+
+@media (max-width: 320px) {
+  /* Extra tiny phones */
   .hero-section .display-4 {
     font-size: 1.25rem !important;
     line-height: 1.1;
@@ -467,12 +770,50 @@ body {
   }
 
   .hero-section .lead {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
+    line-height: 1.3;
+  }
+
+  .btn-custom {
+    font-size: 0.8rem;
+    padding: 0.3rem 0.6rem;
+  }
+
+  .profile-image-container {
+    max-width: 110px;
+  }
+
+  .skill-card {
+    height: 160px;
+  }
+
+  .project-card .card-img-top {
+    height: 80px;
+  }
+
+  .section-title {
+    font-size: 1.2rem;
+  }
+
+  .chat-popup {
+    width: 160px;
+    height: 220px;
+    right: 30px;
+    bottom: 45px;
+    max-width: calc(100vw - 35px);
+  }
+
+  .chat-button {
+    width: 32px;
+    height: 32px;
+    font-size: 0.8rem;
+    bottom: 6px;
+    right: 6px;
   }
 
   .container {
-    padding-left: 10px;
-    padding-right: 10px;
+    padding-left: 8px;
+    padding-right: 8px;
   }
 }
 
@@ -584,6 +925,8 @@ footer.aos-animate {
   opacity: 0;
   transform: translateY(20px);
   transition: all 0.3s ease-in-out;
+  max-width: calc(100vw - 100px);
+  max-height: calc(100vh - 120px);
 }
 
 .chat-popup.show {
@@ -637,6 +980,8 @@ footer.aos-animate {
   border-top: 1px solid #343a40;
   display: flex;
   gap: 10px;
+  align-items: center;
+  min-height: 50px;
 }
 
 .chat-footer input {
@@ -646,6 +991,7 @@ footer.aos-animate {
   border-radius: 5px;
   background-color: rgba(255, 255, 255, 0.1);
   color: var(--light-color);
+  min-width: 0; /* Allow input to shrink */
 }
 
 .chat-footer input:focus {
@@ -662,6 +1008,8 @@ footer.aos-animate {
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  white-space: nowrap;
+  flex-shrink: 0; /* Prevent button from shrinking */
 }
 
 .chat-footer button:hover {
