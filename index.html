@@ -2,6 +2,10 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=no"
+    />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
@@ -12,7 +16,6 @@
       content="backend developer, AI engineer, software developer, Indonesia"
     />
     <meta name="author" content="Lintang Dandung Prakoso" />
-
     <title>Lintang Dandung Prakoso | Backend Developer & AI Engineer</title>
 
     <!-- Bootstrap CSS -->
@@ -87,22 +90,25 @@
                   href="https://www.linkedin.com/in/lintangdandungprakoso25/"
                   class="social-icon me-3"
                   aria-label="LinkedIn"
-                  ><i class="fab fa-linkedin-in"></i
-                ></a>
+                >
+                  <i class="fab fa-linkedin-in"></i>
+                </a>
                 <a
                   href="https://github.com/Lintangeaa"
                   class="social-icon"
                   aria-label="GitHub"
-                  ><i class="fab fa-github"></i
-                ></a>
+                >
+                  <i class="fab fa-github"></i>
+                </a>
               </div>
               <a
                 href="#projects"
                 class="btn btn-custom btn-lg mt-4"
                 data-aos="fade-up"
                 data-aos-delay="600"
-                >View Projects</a
               >
+                View Projects
+              </a>
             </div>
           </div>
         </div>
@@ -129,13 +135,7 @@
             <div class="col-lg-8" data-aos="fade-up" data-aos-delay="300">
               <p class="lead hoverable-text">
                 I am a dedicated Backend Developer and AI Engineer focused on
-                creating efficient and innovative technology solutions. With
-                specialized expertise in AI Chatbot Development and Web
-                Development, I can design intelligent and interactive solutions
-                that combine artificial intelligence with engaging user
-                experiences. My focus is on delivering technology that is not
-                only advanced but also user-friendly and provides significant
-                added value.
+                creating efficient and innovative technology solutions.
               </p>
             </div>
           </div>
@@ -157,8 +157,6 @@
                     <li>Natural Language Processing</li>
                     <li>Conversational AI</li>
                     <li>Chatbot Architecture</li>
-                    <li>Machine Learning Models</li>
-                    <li>Prompt Engineering</li>
                   </ul>
                 </div>
               </div>
@@ -169,10 +167,8 @@
                   <h3 class="card-title h5 text-success">Web Development</h3>
                   <ul class="list-unstyled hoverable-text">
                     <li>Frontend Design</li>
-                    <li>Responsive Web Apps</li>
                     <li>Backend Development</li>
                     <li>Full-Stack Solutions</li>
-                    <li>Modern Web Technologies</li>
                   </ul>
                 </div>
               </div>
@@ -187,8 +183,6 @@
                     <li>Python</li>
                     <li>JavaScript</li>
                     <li>Docker</li>
-                    <li>Cloud Services</li>
-                    <li>CI/CD Pipelines</li>
                   </ul>
                 </div>
               </div>
@@ -200,39 +194,15 @@
       <!-- Projects Section -->
       <section id="projects" class="py-5">
         <div class="container">
-          <h2 class="section-title" data-aos="fade-right">My Projects</h2>
-          <div class="row g-4">
-            <!-- Project Item 1 -->
-            <div
-              class="col-md-6 col-lg-4"
-              data-aos="fade-up"
-              data-aos-delay="200"
-            >
-              <div class="card project-card h-100">
-                <img src="#" class="card-img-top" alt="Project Image" />
-                <div class="card-body">
-                  <h5 class="card-title text-success">Project Title 1</h5>
-                  <p class="card-text">Brief description of Project 1.</p>
-                  <a href="#" class="btn btn-custom btn-sm">View Project</a>
-                </div>
+          <h2 class="section-title" data-aos="fade-right">Coming Soon</h2>
+          <div class="row">
+            <div class="col-12 text-center">
+              <div class="coming-soon" data-aos="zoom-in">
+                <h3 class="text-success mb-4">My Projects</h3>
+                <p>Currently under development</p>
+                <p>Stay tuned for updates!</p>
               </div>
             </div>
-            <!-- Project Item 2 -->
-            <div
-              class="col-md-6 col-lg-4"
-              data-aos="fade-up"
-              data-aos-delay="300"
-            >
-              <div class="card project-card h-100">
-                <img src="#" class="card-img-top" alt="Project Image" />
-                <div class="card-body">
-                  <h5 class="card-title text-success">Project Title 2</h5>
-                  <p class="card-text">Brief description of Project 2.</p>
-                  <a href="#" class="btn btn-custom btn-sm">View Project</a>
-                </div>
-              </div>
-            </div>
-            <!-- Add more project items as needed -->
           </div>
         </div>
       </section>
@@ -254,11 +224,17 @@
     <div class="chat-popup">
       <div class="chat-header">
         <h4>Chat with Lintang</h4>
-        <button class="close-chat">&times;</button>
+        <div class="chat-actions">
+          <button class="expand-chat" title="Toggle expand">
+            <i class="fas fa-expand"></i>
+          </button>
+          <button class="close-chat">&times;</button>
+        </div>
       </div>
       <div class="chat-body">
-        <!-- Chat messages will go here -->
-        <p>Hello! How can I help you today?</p>
+        <div class="bot-message">
+          <p>Hello! How can I help you today?</p>
+        </div>
       </div>
       <div class="chat-footer">
         <input type="text" placeholder="Type a message..." />
