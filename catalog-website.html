@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Katalog Paket Website - Soulcode</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f5f5;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+        }
+        
+        /* Cover */
+        .cover {
+            text-align: center;
+            padding: 60px 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            margin: -40px -40px 40px -40px;
+        }
+        
+        .logo {
+            font-size: 48px;
+            font-weight: bold;
+            letter-spacing: 4px;
+            margin-bottom: 10px;
+        }
+        
+        .tagline {
+            font-size: 16px;
+            font-style: italic;
+            margin-bottom: 30px;
+        }
+        
+        .cover-title {
+            font-size: 28px;
+            font-weight: bold;
+        }
+        
+        /* Table */
+        .table-container {
+            overflow-x: auto;
+            margin: 30px 0;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 30px;
+        }
+        
+        th {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-size: 16px;
+            font-weight: bold;
+        }
+        
+        td {
+            padding: 15px;
+            border: 1px solid #ddd;
+            vertical-align: top;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        
+        .package-name {
+            font-size: 18px;
+            font-weight: bold;
+            color: #667eea;
+            margin-bottom: 5px;
+        }
+        
+        .package-desc {
+            font-size: 13px;
+            color: #666;
+            font-style: italic;
+        }
+        
+        .price-box {
+            background: #f0f4ff;
+            padding: 12px;
+            border-radius: 5px;
+            margin-bottom: 8px;
+            border-left: 3px solid #667eea;
+        }
+        
+        .price-label {
+            font-size: 11px;
+            color: #667eea;
+            font-weight: bold;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+        }
+        
+        .price-value {
+            font-size: 15px;
+            font-weight: bold;
+            color: #333;
+            line-height: 1.4;
+        }
+        
+        .price-info {
+            font-size: 11px;
+            color: #666;
+            margin-top: 10px;
+            padding-top: 10px;
+            border-top: 1px solid #ddd;
+            line-height: 1.6;
+        }
+        
+        .features-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .features-list li {
+            padding: 5px 0;
+            font-size: 13px;
+            color: #555;
+            position: relative;
+            padding-left: 20px;
+        }
+        
+        .features-list li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #48bb78;
+            font-weight: bold;
+        }
+        
+        /* Specs Section */
+        .specs-title {
+            background: #667eea;
+            color: white;
+            padding: 15px 20px;
+            font-size: 20px;
+            font-weight: bold;
+            margin-top: 40px;
+            margin-bottom: 20px;
+        }
+        
+        .specs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .spec-box {
+            border: 2px solid #e0e0e0;
+            padding: 20px;
+        }
+        
+        .spec-box h4 {
+            color: #667eea;
+            font-size: 16px;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+        
+        .spec-box ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .spec-box li {
+            padding: 5px 0;
+            font-size: 14px;
+            color: #555;
+            position: relative;
+            padding-left: 20px;
+        }
+        
+        .spec-box li:before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
+        }
+        
+        /* Contact */
+        .contact {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+            margin: 40px -40px -40px -40px;
+        }
+        
+        .contact h2 {
+            font-size: 28px;
+            margin-bottom: 30px;
+        }
+        
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+        
+        .contact-box {
+            background: rgba(255,255,255,0.2);
+            padding: 20px 40px;
+            border-radius: 10px;
+        }
+        
+        .contact-box strong {
+            display: block;
+            font-size: 14px;
+            margin-bottom: 8px;
+        }
+        
+        .contact-box a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: bold;
+        }
+        
+        .contact-box a:hover {
+            text-decoration: underline;
+        }
+        
+        .footer-text {
+            margin-top: 30px;
+            font-size: 16px;
+            font-style: italic;
+        }
+        
+        /* Print Button */
+        .print-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+        
+        .print-btn:hover {
+            background: #5568d3;
+        }
+        
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            .container {
+                padding: 20px;
+            }
+            .print-btn {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- COVER -->
+        <div class="cover">
+            <div class="logo">SOULCODE</div>
+            <div class="tagline">Coding with Soul, Building with Passion</div>
+            <div class="cover-title">Paket Pembuatan Website Professional</div>
+        </div>
+        
+        <!-- TABLE PAKET -->
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width: 20%;">Paket</th>
+                        <th style="width: 25%;">Harga</th>
+                        <th style="width: 55%;">Fitur Unggulan</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- SOUL STARTER -->
+                    <tr>
+                        <td>
+                            <div class="package-name">⭐ Soul Starter</div>
+                            <div class="package-desc">Entry Level - Perfect untuk bisnis yang baru memulai</div>
+                        </td>
+                        <td>
+                            <div class="price-box">
+                                <div class="price-label">OTC (One Time)</div>
+                                <div class="price-value">Rp 840.000 - 2.400.000</div>
+                            </div>
+                            <div class="price-box">
+                                <div class="price-label">Monthly (Min. 6 Bulan)</div>
+                                <div class="price-value">Rp 150.000 - 250.000</div>
+                            </div>
+                            <div class="price-info">
+                                • Domain: Rp 180.000/tahun<br>
+                                • SSL: GRATIS
+                            </div>
+                        </td>
+                        <td>
+                            <ul class="features-list">
+                                <li>Responsive design (mobile-friendly)</li>
+                                <li>Contact form</li>
+                                <li>Google Maps integration</li>
+                                <li>Social media links</li>
+                                <li>Loading speed optimization</li>
+                                <li>Hosting SSD</li>
+                                <li>Backup mingguan</li>
+                                <li>Maintenance & support</li>
+                                <li>1x revisi desain</li>
+                            </ul>
+                        </td>
+                    </tr>
+                    
+                    <!-- SOUL BOOST -->
+                    <tr>
+                        <td>
+                            <div class="package-name">🚀 Soul Boost</div>
+                            <div class="package-desc">Middle Entry - Tingkatkan performa dengan fitur lebih lengkap</div>
+                        </td>
+                        <td>
+                            <div class="price-box">
+                                <div class="price-label">OTC (One Time)</div>
+                                <div class="price-value">Rp 2.500.000 - 3.500.000</div>
+                            </div>
+                            <div class="price-box">
+                                <div class="price-label">Monthly (Min. 6 Bulan)</div>
+                                <div class="price-value">Rp 400.000 - 600.000</div>
+                            </div>
+                            <div class="price-info">
+                                • Domain: Rp 180.000/tahun<br>
+                                • SSL: GRATIS
+                            </div>
+                        </td>
+                        <td>
+                            <ul class="features-list">
+                                <li>Semua fitur Soul Starter</li>
+                                <li>Multi-page design (hingga 5 pages)</li>
+                                <li>Blog section</li>
+                                <li>Gallery/portfolio</li>
+                                <li>WhatsApp integration</li>
+                                <li>Google Analytics setup</li>
+                                <li>Basic SEO optimization</li>
+                                <li>Hosting SSD</li>
+                                <li>Backup harian</li>
+                                <li>2x revisi desain</li>
+                            </ul>
+                        </td>
+                    </tr>
+                    
+                    <!-- SOUL GROWTH -->
+                    <tr>
+                        <td>
+                            <div class="package-name">🌱 Soul Growth</div>
+                            <div class="package-desc">SEO Focus - Berkembang dengan strategi SEO dasar</div>
+                        </td>
+                        <td>
+                            <div class="price-box">
+                                <div class="price-label">OTC (One Time)</div>
+                                <div class="price-value">Rp 3.800.000 - 5.000.000</div>
+                            </div>
+                            <div class="price-box">
+                                <div class="price-label">Monthly (Min. 6 Bulan)</div>
+                                <div class="price-value">Rp 850.000 - 1.200.000</div>
+                            </div>
+                            <div class="price-info">
+                                • Domain: Rp 180.000/tahun<br>
+                                • SSL: GRATIS<br>
+                                • SEO Setup: Termasuk
+                            </div>
+                        </td>
+                        <td>
+                            <ul class="features-list">
+                                <li>Semua fitur Soul Boost</li>
+                                <li><strong>Full SEO Services:</strong></li>
+                                <li>Audit website & technical SEO</li>
+                                <li>Keyword research (10 keywords)</li>
+                                <li>On-page optimization</li>
+                                <li>Monthly content (2 artikel)</li>
+                                <li>Google My Business setup</li>
+                                <li>Monthly report</li>
+                                <li>Hosting SSD</li>
+                                <li>Backup harian</li>
+                            </ul>
+                        </td>
+                    </tr>
+                    
+                    <!-- SOUL DOMINATION -->
+                    <tr>
+                        <td>
+                            <div class="package-name">👑 Soul Domination</div>
+                            <div class="package-desc">Premium - Dominasi pasar online dengan fitur maksimal</div>
+                        </td>
+                        <td>
+                            <div class="price-box">
+                                <div class="price-label">OTC (One Time)</div>
+                                <div class="price-value">Rp 7.800.000 - 12.000.000</div>
+                            </div>
+                            <div class="price-box">
+                                <div class="price-label">Monthly (Min. 6 Bulan)</div>
+                                <div class="price-value">Rp 3.000.000 - 4.500.000</div>
+                            </div>
+                            <div class="price-info">
+                                • Domain: Rp 180.000/tahun<br>
+                                • SSL: GRATIS<br>
+                                • SEO Premium: Termasuk
+                            </div>
+                        </td>
+                        <td>
+                            <ul class="features-list">
+                                <li>Semua fitur Soul Growth</li>
+                                <li><strong>Advanced SEO Services:</strong></li>
+                                <li>Complete technical SEO audit</li>
+                                <li>Keyword research (30+ keywords)</li>
+                                <li>Advanced on-page & off-page optimization</li>
+                                <li>Link building (5 backlinks/bulan)</li>
+                                <li>Content (6 artikel + 4 blog posts/bulan)</li>
+                                <li>Competitor analysis</li>
+                                <li>Local & national SEO</li>
+                                <li>Multi-page design (hingga 10 pages)</li>
+                                <li>Advanced animations & Live chat</li>
+                                <li>CRM integration ready</li>
+                                <li>Hosting SSD Premium</li>
+                                <li>Backup harian + disaster recovery</li>
+                                <li>Priority support</li>
+                                <li>Dedicated account manager</li>
+                                <li>Unlimited revisi (masa development)</li>
+                            </ul>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <!-- SPESIFIKASI HOSTING -->
+        <div class="specs-title">Spesifikasi Hosting Soulcode</div>
+        
+        <div class="specs-grid">
+            <div class="spec-box">
+                <h4>🔒 Security Features</h4>
+                <ul>
+                    <li>Free SSL Certificate</li>
+                    <li>DDoS Protection</li>
+                    <li>Malware Scanner</li>
+                    <li>Daily Backup</li>
+                    <li>Firewall Protection</li>
+                    <li>Spam Protection</li>
+                </ul>
+            </div>
+            
+            <div class="spec-box">
+                <h4>⚡ Performance</h4>
+                <ul>
+                    <li>SSD Storage (Super cepat)</li>
+                    <li>CloudFlare CDN Ready</li>
+                    <li>HTTP/2 & HTTP/3 Support</li>
+                    <li>Redis Cache Available</li>
+                    <li>99.9% Uptime SLA</li>
+                </ul>
+            </div>
+            
+            <div class="spec-box">
+                <h4>📋 Syarat & Ketentuan</h4>
+                <ul>
+                    <li>Harga sudah termasuk PPN 11%</li>
+                    <li>Minimal kontrak 6 bulan</li>
+                    <li>Biaya setup dibayar sekali</li>
+                    <li>Domain & hosting per tahun</li>
+                    <li>Pembayaran monthly di awal bulan</li>
+                    <li>Gratis migrasi hosting lama</li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- CONTACT -->
+        <div class="contact">
+            <h2>Hubungi Soulcode</h2>
+            
+            <div class="contact-info">
+                <div class="contact-box">
+                    <strong>📧 Email</strong>
+                    <a href="mailto:soulcode.sc@gmail.com">soulcode.sc@gmail.com</a>
+                </div>
+                
+                <div class="contact-box">
+                    <strong>📱 WhatsApp</strong>
+                    <a href="https://wa.me/6285158032556" target="_blank">wa.me/6285158032556</a>
+                </div>
+            </div>
+            
+            <div class="footer-text">Coding with Soul, Building with Passion</div>
+        </div>
+    </div>
+    
+    <button class="print-btn" onclick="window.print()">📥 Download PDF</button>
+</body>
+</html>
