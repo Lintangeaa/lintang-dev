@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Katalog Paket Website - Soulcode</title>
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
     <style>
         * {
             margin: 0;
@@ -28,9 +33,10 @@
         .cover {
             text-align: center;
             padding: 60px 20px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
             color: white;
             margin: -40px -40px 40px -40px;
+            border-bottom: 2px solid #10b981;
         }
         
         .logo {
@@ -64,12 +70,13 @@
         }
         
         th {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
             color: white;
             padding: 15px;
             text-align: left;
             font-size: 16px;
             font-weight: bold;
+            border-bottom: 2px solid #10b981;
         }
         
         td {
@@ -85,7 +92,7 @@
         .package-name {
             font-size: 18px;
             font-weight: bold;
-            color: #667eea;
+            color: #10b981;
             margin-bottom: 5px;
         }
         
@@ -96,16 +103,16 @@
         }
         
         .price-box {
-            background: #f0f4ff;
+            background: rgba(16, 185, 129, 0.1);
             padding: 12px;
             border-radius: 5px;
             margin-bottom: 8px;
-            border-left: 3px solid #667eea;
+            border-left: 3px solid #10b981;
         }
         
         .price-label {
             font-size: 11px;
-            color: #667eea;
+            color: #10b981;
             font-weight: bold;
             margin-bottom: 5px;
             text-transform: uppercase;
@@ -145,19 +152,20 @@
             content: "✓";
             position: absolute;
             left: 0;
-            color: #48bb78;
+            color: #10b981;
             font-weight: bold;
         }
         
         /* Specs Section */
         .specs-title {
-            background: #667eea;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
             color: white;
             padding: 15px 20px;
             font-size: 20px;
             font-weight: bold;
             margin-top: 40px;
             margin-bottom: 20px;
+            border-bottom: 2px solid #10b981;
         }
         
         .specs-grid {
@@ -173,7 +181,7 @@
         }
         
         .spec-box h4 {
-            color: #667eea;
+            color: #10b981;
             font-size: 16px;
             margin-bottom: 15px;
             font-weight: bold;
@@ -196,17 +204,18 @@
             content: "•";
             position: absolute;
             left: 0;
-            color: #667eea;
+            color: #10b981;
             font-weight: bold;
         }
         
         /* Contact */
         .contact {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
             color: white;
             padding: 40px;
             text-align: center;
             margin: 40px -40px -40px -40px;
+            border-top: 2px solid #10b981;
         }
         
         .contact h2 {
@@ -238,10 +247,12 @@
             text-decoration: none;
             font-size: 16px;
             font-weight: bold;
+            transition: all 0.3s ease;
         }
         
         .contact-box a:hover {
-            text-decoration: underline;
+            color: #10b981;
+            transform: translateY(-2px);
         }
         
         .footer-text {
@@ -255,7 +266,7 @@
             position: fixed;
             bottom: 30px;
             right: 30px;
-            background: #667eea;
+            background: #10b981;
             color: white;
             border: none;
             padding: 15px 30px;
@@ -263,11 +274,14 @@
             font-weight: bold;
             border-radius: 50px;
             cursor: pointer;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+            transition: all 0.3s ease;
         }
         
         .print-btn:hover {
-            background: #5568d3;
+            background: #059669;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4);
         }
         
         @media print {
@@ -286,6 +300,13 @@
 </head>
 <body>
     <div class="container">
+        <!-- NAVIGATION -->
+        <div style="margin: 20px 0;">
+            <a href="../" style="color: #10b981; text-decoration: none; font-weight: bold; display: inline-flex; align-items: center; gap: 8px; transition: all 0.3s ease; padding: 8px 16px; border-radius: 8px; background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.2);" onmouseover="this.style.background='rgba(16, 185, 129, 0.2)'; this.style.transform='translateY(-2px)'" onmouseout="this.style.background='rgba(16, 185, 129, 0.1)'; this.style.transform='translateY(0)'">
+                <i class="fas fa-arrow-left"></i> Back to Portfolio
+            </a>
+        </div>
+        
         <!-- COVER -->
         <div class="cover">
             <div class="logo">SOULCODE</div>
@@ -505,13 +526,13 @@
             
             <div class="contact-info">
                 <div class="contact-box">
-                    <strong>📧 Email</strong>
-                    <a href="mailto:soulcode.sc@gmail.com">soulcode.sc@gmail.com</a>
+                    <strong><i class="fas fa-envelope"></i> Email</strong>
+                    <a href="mailto:soulcode.sc@gmail.com" style="color: white; text-decoration: none; font-size: 16px; font-weight: bold; transition: all 0.3s ease;" onmouseover="this.style.color='#10b981'; this.style.transform='translateY(-2px)'" onmouseout="this.style.color='white'; this.style.transform='translateY(0)'">soulcode.sc@gmail.com</a>
                 </div>
                 
                 <div class="contact-box">
-                    <strong>📱 WhatsApp</strong>
-                    <a href="https://wa.me/6285158032556" target="_blank">wa.me/6285158032556</a>
+                    <strong><i class="fab fa-whatsapp"></i> WhatsApp</strong>
+                    <a href="https://wa.me/6285158032556" target="_blank" style="color: white; text-decoration: none; font-size: 16px; font-weight: bold; transition: all 0.3s ease;" onmouseover="this.style.color='#10b981'; this.style.transform='translateY(-2px)'" onmouseout="this.style.color='white'; this.style.transform='translateY(0)'">wa.me/6285158032556</a>
                 </div>
             </div>
             
@@ -519,6 +540,6 @@
         </div>
     </div>
     
-    <button class="print-btn" onclick="window.print()">📥 Download PDF</button>
+    <button class="print-btn" onclick="window.print()"><i class="fas fa-download"></i> Download PDF</button>
 </body>
 </html>
