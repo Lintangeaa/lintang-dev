@@ -37,7 +37,7 @@ export default function Projects() {
               </h3>
               
               <p className="text-slate-300 text-lg mb-6 leading-relaxed">
-                I'm currently working on some exciting projects that showcase my skills in 
+                I&apos;m currently working on some exciting projects that showcase my skills in 
                 backend development and AI engineering. Stay tuned for updates!
               </p>
               
