@@ -1,5 +1,9 @@
 "use client";
 
+import { createOrder, OrderPayload } from "@/lib/api/ordersClient";
+import { useEffect, useRef } from "react";
+import { listServices, ServiceItem } from "@/lib/api/serviceClient";
+
 import { useState } from "react";
 import { FaArrowLeft, FaEnvelope, FaWhatsapp, FaDownload, FaShoppingCart, FaCheckCircle } from "react-icons/fa";
 import Link from "next/link";
@@ -8,6 +12,10 @@ export default function CatalogPage() {
   const [showOrderForm, setShowOrderForm] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [services, setServices] = useState<ServiceItem[]>([]);
+  const [loadingServices, setLoadingServices] = useState<boolean>(true);
+  const [servicesError, setServicesError] = useState<string | null>(null);
+  const formRef = useRef<HTMLDivElement | null>(null);
 
   const [form, setForm] = useState({
     customerName: "",
@@ -17,20 +25,64 @@ export default function CatalogPage() {
     description: "",
     colorPrimary: "#10b981",
     colorSecondary: "#1e293b",
+    service: "",
+    serviceId: "",
   });
 
-  const onChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const onChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
+    if (name === "service" && e.target instanceof HTMLSelectElement) {
+      const selectedOption = e.target.selectedOptions[0];
+      const sid = selectedOption?.getAttribute("data-id") || "";
+      setForm((f) => ({ ...f, service: value, serviceId: sid }));
+      return;
+    }
     setForm((f) => ({ ...f, [name]: value }));
+  };
+
+  useEffect(() => {
+    listServices()
+      .then((items) => {
+        setServices(items);
+        setForm((f) => ({ ...f, service: items[0]?.name || "", serviceId: items[0]?.id || "" }));
+      })
+      .catch((e) => setServicesError(e instanceof Error ? e.message : "Unknown error"))
+      .finally(() => setLoadingServices(false));
+  }, []);
+
+  const openFormForService = (serviceName?: string, serviceId?: string) => {
+    if (serviceName) {
+      setForm((f) => ({ ...f, service: serviceName, serviceId: serviceId || f.serviceId }));
+    }
+    setSubmitted(false);
+    setShowOrderForm(true);
+    requestAnimationFrame(() => {
+      formRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
   };
 
   const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setSubmitting(true);
-    // Simulate submit
-    await new Promise((r) => setTimeout(r, 800));
-    setSubmitting(false);
-    setSubmitted(true);
+    try {
+      const payload: OrderPayload = {
+        serviceId: form.serviceId,
+        customerName: form.customerName,
+        whatsapp: form.whatsapp,
+        websiteName: form.websiteName,
+        companyName: form.companyName,
+        description: form.description,
+        colorPrimary: form.colorPrimary,
+        colorSecondary: form.colorSecondary,
+      };
+      await createOrder(payload);
+      setSubmitted(true);
+    } catch (err) {
+      console.error(err);
+      alert("Gagal mengirim pesanan. Coba lagi atau hubungi kami.");
+    } finally {
+      setSubmitting(false);
+    }
   };
   const handlePrint = () => {
     if (typeof window !== "undefined") window.print();
@@ -57,7 +109,7 @@ export default function CatalogPage() {
             <div className="mt-6 text-2xl font-bold">Paket Pembuatan Website Professional</div>
             <div className="mt-6 flex items-center justify-center gap-3">
               <button
-                onClick={() => { setShowOrderForm(true); setSubmitted(false); }}
+                onClick={() => openFormForService()}
                 className="inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-600 text-white font-semibold px-5 py-3 rounded-lg shadow transition"
               >
                 <FaShoppingCart /> Order Sekarang
@@ -66,7 +118,7 @@ export default function CatalogPage() {
           </div>
         </div>
 
-        {/* Table */}
+        {/* Table (Services) */}
         <div className="overflow-x-auto">
           <table className="w-full border-collapse text-sm">
             <thead>
@@ -77,113 +129,39 @@ export default function CatalogPage() {
               </tr>
             </thead>
             <tbody>
-              {[
-                {
-                  name: "⭐ Soul Starter",
-                  desc: "Entry Level - Perfect untuk bisnis yang baru memulai",
-                  otc: "Rp 840.000 - 2.400.000",
-                  monthly: "Rp 150.000 - 250.000",
-                  info: ["Domain: Rp 180.000/tahun", "SSL: GRATIS"],
-                  features: [
-                    "Responsive design (mobile-friendly)",
-                    "Contact form",
-                    "Google Maps integration",
-                    "Social media links",
-                    "Loading speed optimization",
-                    "Hosting SSD",
-                    "Backup mingguan",
-                    "Maintenance & support",
-                    "1x revisi desain",
-                  ],
-                },
-                {
-                  name: "🚀 Soul Boost",
-                  desc: "Middle Entry - Tingkatkan performa dengan fitur lebih lengkap",
-                  otc: "Rp 2.500.000 - 3.500.000",
-                  monthly: "Rp 400.000 - 600.000",
-                  info: ["Domain: Rp 180.000/tahun", "SSL: GRATIS"],
-                  features: [
-                    "Semua fitur Soul Starter",
-                    "Multi-page design (hingga 5 pages)",
-                    "Blog section",
-                    "Gallery/portfolio",
-                    "WhatsApp integration",
-                    "Google Analytics setup",
-                    "Basic SEO optimization",
-                    "Hosting SSD",
-                    "Backup harian",
-                    "2x revisi desain",
-                  ],
-                },
-                {
-                  name: "🌱 Soul Growth",
-                  desc: "SEO Focus - Berkembang dengan strategi SEO dasar",
-                  otc: "Rp 3.800.000 - 5.000.000",
-                  monthly: "Rp 850.000 - 1.200.000",
-                  info: ["Domain: Rp 180.000/tahun", "SSL: GRATIS", "SEO Setup: Termasuk"],
-                  features: [
-                    "Semua fitur Soul Boost",
-                    "Full SEO Services:",
-                    "Audit website & technical SEO",
-                    "Keyword research (10 keywords)",
-                    "On-page optimization",
-                    "Monthly content (2 artikel)",
-                    "Google My Business setup",
-                    "Monthly report",
-                    "Hosting SSD",
-                    "Backup harian",
-                  ],
-                },
-                {
-                  name: "👑 Soul Domination",
-                  desc: "Premium - Dominasi pasar online dengan fitur maksimal",
-                  otc: "Rp 7.800.000 - 12.000.000",
-                  monthly: "Rp 3.000.000 - 4.500.000",
-                  info: ["Domain: Rp 180.000/tahun", "SSL: GRATIS", "SEO Premium: Termasuk"],
-                  features: [
-                    "Semua fitur Soul Growth",
-                    "Advanced SEO Services:",
-                    "Complete technical SEO audit",
-                    "Keyword research (30+ keywords)",
-                    "Advanced on-page & off-page optimization",
-                    "Link building (5 backlinks/bulan)",
-                    "Content (6 artikel + 4 blog posts/bulan)",
-                    "Competitor analysis",
-                    "Local & national SEO",
-                    "Multi-page design (hingga 10 pages)",
-                    "Advanced animations & Live chat",
-                    "CRM integration ready",
-                    "Hosting SSD Premium",
-                    "Backup harian + disaster recovery",
-                    "Priority support",
-                    "Dedicated account manager",
-                    "Unlimited revisi (masa development)",
-                  ],
-                },
-              ].map((pkg) => (
-                <tr key={pkg.name} className="odd:bg-white even:bg-slate-50 dark:odd:bg-slate-900 dark:even:bg-slate-800/60">
+              {(services || []).map((svc) => (
+                <tr key={svc.id || svc.name} className="odd:bg-white even:bg-slate-50 dark:odd:bg-slate-900 dark:even:bg-slate-800/60">
                   <td className="align-top p-4">
-                    <div className="text-emerald-600 dark:text-emerald-400 font-semibold text-base">{pkg.name}</div>
-                    <div className="text-xs text-slate-500 dark:text-slate-400 italic mt-1">{pkg.desc}</div>
+                    <div className="text-emerald-600 dark:text-emerald-400 font-semibold text-base">{svc.name}</div>
+                    <div className="text-xs text-slate-500 dark:text-slate-400 italic mt-1">{svc.description}</div>
+                    <div className="mt-3">
+                      <button
+                        type="button"
+                        onClick={() => openFormForService(svc.name, svc.id)}
+                        className="inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-600 text-white font-semibold px-3 py-1.5 rounded-md shadow transition text-xs"
+                      >
+                        Pilih & Order
+                      </button>
+                    </div>
                   </td>
                   <td className="align-top p-4">
                     <div className="bg-emerald-500/10 border-l-4 border-emerald-500 rounded px-3 py-2 mb-2">
                       <div className="text-[11px] uppercase font-semibold text-emerald-600 dark:text-emerald-400">OTC (One Time)</div>
-                      <div className="text-sm font-bold mt-1">{pkg.otc}</div>
+                      <div className="text-sm font-bold mt-1">{svc.otc_range}</div>
                     </div>
                     <div className="bg-emerald-500/10 border-l-4 border-emerald-500 rounded px-3 py-2">
                       <div className="text-[11px] uppercase font-semibold text-emerald-600 dark:text-emerald-400">Monthly (Min. 6 Bulan)</div>
-                      <div className="text-sm font-bold mt-1">{pkg.monthly}</div>
+                      <div className="text-sm font-bold mt-1">{svc.monthly_range}</div>
                     </div>
                     <div className="text-[11px] text-slate-500 dark:text-slate-400 mt-3 pt-3 border-t border-slate-200 dark:border-slate-700 leading-relaxed">
-                      {pkg.info.map((i) => (
+                      {svc.info.map((i) => (
                         <div key={i}>• {i}</div>
                       ))}
                     </div>
                   </td>
                   <td className="align-top p-4">
                     <ul className="list-none space-y-2 text-slate-700 dark:text-slate-200 text-sm">
-                      {pkg.features.map((f) => (
+                      {svc.features.map((f) => (
                         <li key={f} className="pl-5 relative">
                           <span className="absolute left-0 top-1.5 text-emerald-500">✓</span>
                           {f}
@@ -272,7 +250,7 @@ export default function CatalogPage() {
 
         {/* Order Form */}
         {showOrderForm && (
-          <div className="mt-12">
+          <div ref={formRef} className="mt-12">
             <div className="text-white bg-gradient-to-br from-slate-900 to-slate-800 border-b-2 border-emerald-500 px-6 py-4 text-xl font-bold rounded-t-lg">
               Form Pemesanan Website
             </div>
@@ -314,6 +292,22 @@ export default function CatalogPage() {
                   <div>
                     <h3 className="text-lg font-semibold text-emerald-600 dark:text-emerald-400 mb-3">Detail Website</h3>
                     <div className="grid md:grid-cols-2 gap-4">
+                      <div className="md:col-span-2">
+                        <label className="block text-sm mb-1" htmlFor="service">Pilih Paket/Service</label>
+                        <select
+                          id="service"
+                          name="service"
+                          value={form.service}
+                          onChange={onChange}
+                          className="w-full rounded-md border border-slate-300 dark:border-slate-700 bg-white/90 dark:bg-slate-800 px-3 py-2 outline-none focus:ring-2 focus:ring-emerald-400"
+                        >
+                          {loadingServices && <option>Loading services...</option>}
+                          {servicesError && <option disabled>Error load services</option>}
+                          {!loadingServices && !servicesError && services.map((s) => (
+                            <option key={s.id} value={s.name} data-id={s.id}>{s.name}</option>
+                          ))}
+                        </select>
+                      </div>
                       <div>
                         <label className="block text-sm mb-1" htmlFor="websiteName">Nama Website</label>
                         <input
