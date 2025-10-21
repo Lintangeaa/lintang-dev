@@ -28,7 +28,7 @@ export default function OrdersAdminPage() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-900 text-slate-100 p-6 md:p-10">
+    <div className="h-full bg-slate-900 text-slate-100 p-6 md:p-10">
       <h1 className="text-2xl font-bold mb-6">Orders Admin</h1>
       
       {error && (

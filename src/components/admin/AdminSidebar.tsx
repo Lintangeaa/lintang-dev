@@ -2,8 +2,9 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import { Button } from '@/components/design-system';
+import { useAuth } from '@/lib/contexts/AuthContext';
 import { FaHome, FaShoppingCart, FaUser, FaSignOutAlt, FaBars, FaTimes } from 'react-icons/fa';
 
 interface AdminSidebarProps {
@@ -31,9 +32,16 @@ const navigation = [
 export default function AdminSidebar({ children }: AdminSidebarProps) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const pathname = usePathname();
+  const router = useRouter();
+  const { user, logout } = useAuth();
+
+  const handleLogout = () => {
+    logout();
+    router.push('/login');
+  };
 
   return (
-    <div className="min-h-screen bg-slate-100 dark:bg-slate-900">
+    <div className="h-screen flex bg-slate-100 dark:bg-slate-900 overflow-hidden">
       {/* Mobile menu button */}
       <div className="lg:hidden fixed top-4 left-4 z-50">
         <Button
@@ -58,7 +66,7 @@ export default function AdminSidebar({ children }: AdminSidebarProps) {
       <div className={`
         fixed inset-y-0 left-0 z-50 w-64 bg-white dark:bg-slate-800 shadow-lg transform transition-transform duration-300 ease-in-out
         ${isMobileMenuOpen ? 'translate-x-0' : '-translate-x-full'}
-        lg:translate-x-0 lg:static lg:inset-0
+        lg:translate-x-0 lg:static lg:inset-0 lg:h-full
       `}>
         <div className="flex flex-col h-full">
           {/* Logo */}
@@ -102,10 +110,10 @@ export default function AdminSidebar({ children }: AdminSidebarProps) {
               </div>
               <div className="ml-3">
                 <p className="text-sm font-medium text-slate-900 dark:text-slate-100">
-                  Admin
+                  {user?.username || 'Admin'}
                 </p>
                 <p className="text-xs text-slate-500 dark:text-slate-400">
-                  admin@soulcode.com
+                  Administrator
                 </p>
               </div>
             </div>
@@ -113,6 +121,7 @@ export default function AdminSidebar({ children }: AdminSidebarProps) {
               variant="outline"
               size="sm"
               className="w-full"
+              onClick={handleLogout}
             >
               <FaSignOutAlt className="mr-2 h-4 w-4" />
               Logout
@@ -122,8 +131,8 @@ export default function AdminSidebar({ children }: AdminSidebarProps) {
       </div>
 
       {/* Main content */}
-      <div className="lg:pl-64">
-        <div className="min-h-screen">
+      <div className="flex-1 flex flex-col overflow-hidden">
+        <div className="flex-1 overflow-auto">
           {children}
         </div>
       </div>
