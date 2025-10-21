@@ -15,6 +15,7 @@ export interface OrderPayload {
 export interface OrderItem {
   id: string;
   serviceId: string;
+  serviceName: string;
   customerName: string;
   whatsapp: string;
   websiteName: string;
@@ -44,6 +45,7 @@ function toApiPayload(ui: OrderPayload) {
 interface ApiOrder {
   id: string;
   service_id: string;
+  service_name: string;
   customer_name: string;
   whatsapp: string;
   website_name: string;
@@ -72,6 +74,7 @@ function fromApiItem(api: ApiOrder): OrderItem {
   return {
     id: api.id,
     serviceId: api.service_id,
+    serviceName: api.service_name,
     customerName: api.customer_name,
     whatsapp: api.whatsapp,
     websiteName: api.website_name,
