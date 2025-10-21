@@ -9,6 +9,7 @@ import { useServices, useCreateOrder, useErrorHandler } from "@/lib/hooks";
 
 export default function CatalogPage() {
   const [showOrderForm, setShowOrderForm] = useState(false);
+  const [selectedService, setSelectedService] = useState<{id: string, name: string} | null>(null);
   const formRef = useRef<HTMLDivElement | null>(null);
 
   // TanStack Query hooks
@@ -16,7 +17,10 @@ export default function CatalogPage() {
   const createOrderMutation = useCreateOrder();
   const { handleApiError } = useErrorHandler();
 
-  const openFormForService = () => {
+  const openFormForService = (serviceId?: string, serviceName?: string) => {
+    if (serviceId && serviceName) {
+      setSelectedService({ id: serviceId, name: serviceName });
+    }
     setShowOrderForm(true);
     requestAnimationFrame(() => {
       formRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -46,7 +50,9 @@ export default function CatalogPage() {
       };
       
       await createOrderMutation.mutateAsync(payload);
-      setShowOrderForm(false); // Close form after successful submission
+      // Don't close form immediately - let OrderForm handle success state
+      // setShowOrderForm(false); 
+      // setSelectedService(null);
     } catch (err) {
       handleApiError(err, 'mengirim pesanan');
     }
@@ -76,7 +82,7 @@ export default function CatalogPage() {
             <div className="mt-6 text-2xl font-bold">Paket Pembuatan Website Professional</div>
             <div className="mt-6 flex items-center justify-center gap-3">
               <Button
-                onClick={openFormForService}
+                onClick={() => openFormForService()}
                 leftIcon={<FaShoppingCart />}
                 size="lg"
               >
@@ -210,7 +216,12 @@ export default function CatalogPage() {
               services={services.map(s => ({ id: s.id, name: s.name, description: s.description }))}
               loading={createOrderMutation.isPending}
               onSubmit={handleOrderSubmit}
-              onCancel={() => setShowOrderForm(false)}
+              onCancel={() => {
+                setShowOrderForm(false);
+                setSelectedService(null);
+              }}
+              selectedService={selectedService}
+              isSuccess={createOrderMutation.isSuccess}
             />
           </div>
         )}

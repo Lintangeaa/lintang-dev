@@ -48,7 +48,7 @@ export const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
             'w-full rounded-md border px-3 py-2 text-sm',
             'bg-white/90 dark:bg-slate-800',
             'border-slate-300 dark:border-slate-700',
-            'text-slate-900 dark:text-slate-100',
+            'text-slate-300 dark:text-slate-100',
             'focus:outline-none focus:ring-2 focus:ring-emerald-400 focus:border-transparent',
             'transition-colors duration-200',
             'appearance-none cursor-pointer',
