@@ -181,27 +181,21 @@ export default function CatalogPage() {
           <div className="px-6 md:px-10 py-12 text-center bg-gradient-to-br from-slate-900 to-slate-800 text-white border-t-2 border-emerald-500 rounded-t-lg">
             <h2 className="text-2xl font-bold mb-8">Hubungi Soulcode</h2>
             <div className="flex flex-wrap justify-center gap-6">
-              <div className="bg-white/20 px-8 py-5 rounded-lg">
-                <strong className="text-sm mb-2 flex items-center gap-2">
-                  <FaEnvelope /> Email
-                </strong>
-                <a 
-                  href="mailto:soulcode.sc@gmail.com" 
-                  className="font-semibold hover:text-emerald-300 transition"
-                >
-                  soulcode.sc@gmail.com
-                </a>
-              </div>
-              <div className="bg-white/20 px-8 py-5 rounded-lg">
-                <a 
-                  href="https://wa.me/62881080537675?text=Halo%20Soulcode%2C%20saya%20tertarik%20dengan%20layanan%20pembuatan%20website%20professional%20Anda.%20Bisa%20saya%20konsultasi%20lebih%20lanjut%3F" 
-                  target="_blank" 
-                  className="flex items-center justify-center hover:text-emerald-300 transition text-2xl"
-                  title="WhatsApp"
-                >
-                  <FaWhatsapp />
-                </a>
-              </div>
+              <a 
+                href="mailto:soulcode.sc@gmail.com" 
+                className="bg-white/20 px-8 py-6 rounded-lg text-center hover:bg-white/30 transition-all duration-300"
+                title="Email: soulcode.sc@gmail.com"
+              >
+                <FaEnvelope className="text-4xl text-emerald-400 mx-auto" />
+              </a>
+              <a 
+                href="https://wa.me/62881080537675?text=Halo%20Soulcode%2C%20saya%20tertarik%20dengan%20layanan%20pembuatan%20website%20professional%20Anda.%20Bisa%20saya%20konsultasi%20lebih%20lanjut%3F" 
+                target="_blank" 
+                className="bg-white/20 px-8 py-6 rounded-lg text-center hover:bg-white/30 transition-all duration-300"
+                title="WhatsApp: Chat Sekarang"
+              >
+                <FaWhatsapp className="text-4xl text-emerald-400 mx-auto" />
+              </a>
             </div>
             <div className="mt-8 italic">Where Code Meet Soul</div>
           </div>
