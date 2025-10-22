@@ -11,13 +11,18 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Lintang Dandung Prakoso | Backend Developer & AI Engineer",
-  description: "Portfolio of Lintang Dandung Prakoso - Backend Developer and AI Engineer focused on creating efficient and innovative technology solutions.",
-  keywords: "backend developer, AI engineer, software developer, Indonesia, Python, JavaScript, Docker",
+  title: "Lintang Dandung Prakoso | Backend Developer, AI Engineer & Chatbot Developer",
+  description: "Portfolio of Lintang Dandung Prakoso - Backend Developer, AI Engineer & Chatbot Developer focused on creating efficient and innovative technology solutions.",
+  keywords: "backend developer, AI engineer, chatbot developer, software developer, Indonesia, Python, JavaScript, Docker",
   authors: [{ name: "Lintang Dandung Prakoso" }],
+  icons: {
+    icon: '/favicon.ico',
+    shortcut: '/favicon.ico',
+    apple: '/images/soulcode-logo.png',
+  },
   openGraph: {
-    title: "Lintang Dandung Prakoso | Backend Developer & AI Engineer",
-    description: "Building innovative technology solutions with expertise in Backend Development and Artificial Intelligence.",
+    title: "Lintang Dandung Prakoso | Backend Developer, AI Engineer & Chatbot Developer",
+    description: "Building innovative technology solutions with expertise in Backend Development, Artificial Intelligence, and Chatbot Development.",
     type: "website",
   },
 };
