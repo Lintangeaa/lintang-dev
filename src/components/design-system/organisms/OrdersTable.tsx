@@ -143,13 +143,13 @@ export const OrdersTable: React.FC<OrdersTableProps> = ({
                   
                   <td className="p-3">
                     <a 
-                      className="text-emerald-600 hover:text-emerald-700 flex items-center gap-1" 
-                      href={`https://wa.me/${order.whatsapp}`} 
+                      className="text-emerald-600 hover:text-emerald-700 flex items-center justify-center" 
+                      href={`https://wa.me/${order.whatsapp}?text=Halo%2C%20saya%20terkait%20dengan%20order%20${order.serviceName}%20untuk%20${order.customerName}.%20Bisa%20saya%20konsultasi%20lebih%20lanjut%3F`} 
                       target="_blank" 
                       rel="noreferrer"
+                      title={`WhatsApp: ${order.whatsapp}`}
                     >
-                      <FaWhatsapp className="w-3 h-3" />
-                      {order.whatsapp}
+                      <FaWhatsapp className="w-4 h-4" />
                     </a>
                   </td>
                   

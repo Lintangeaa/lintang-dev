@@ -20,10 +20,24 @@ export const metadata: Metadata = {
     shortcut: '/favicon.ico',
     apple: '/images/soulcode-logo.png',
   },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Lintang Dandung Prakoso | Backend Developer, AI Engineer & Chatbot Developer',
+    description: 'Building innovative technology solutions with expertise in Backend Development, Artificial Intelligence, and Chatbot Development.',
+    images: ['/images/soulcode-logo.png'],
+  },
   openGraph: {
     title: "Lintang Dandung Prakoso | Backend Developer, AI Engineer & Chatbot Developer",
     description: "Building innovative technology solutions with expertise in Backend Development, Artificial Intelligence, and Chatbot Development.",
     type: "website",
+    images: [
+      {
+        url: '/images/soulcode-logo.png',
+        width: 1200,
+        height: 630,
+        alt: 'Lintang Dandung Prakoso - Backend Developer, AI Engineer & Chatbot Developer',
+      },
+    ],
   },
 };
 

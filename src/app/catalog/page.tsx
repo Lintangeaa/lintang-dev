@@ -78,7 +78,7 @@ export default function CatalogPage() {
         <div className="-mx-6 md:-mx-10 mb-8">
           <div className="px-6 md:px-10 py-12 text-center bg-gradient-to-br from-slate-900 to-slate-800 text-white border-b-2 border-emerald-500">
             <div className="text-4xl font-extrabold tracking-widest">SOULCODE</div>
-            <div className="mt-2 text-base italic opacity-90">Coding with Soul, Building with Passion</div>
+            <div className="mt-2 text-base italic opacity-90">Where Code Meet Soul</div>
             <div className="mt-6 text-2xl font-bold">Paket Pembuatan Website Professional</div>
             <div className="mt-6 flex items-center justify-center gap-3">
               <Button
@@ -193,19 +193,17 @@ export default function CatalogPage() {
                 </a>
               </div>
               <div className="bg-white/20 px-8 py-5 rounded-lg">
-                <strong className="text-sm mb-2 flex items-center gap-2">
-                  <FaWhatsapp /> WhatsApp
-                </strong>
                 <a 
-                  href="https://wa.me/6285158032556" 
+                  href="https://wa.me/62881080537675?text=Halo%20Soulcode%2C%20saya%20tertarik%20dengan%20layanan%20pembuatan%20website%20professional%20Anda.%20Bisa%20saya%20konsultasi%20lebih%20lanjut%3F" 
                   target="_blank" 
-                  className="font-semibold hover:text-emerald-300 transition"
+                  className="flex items-center justify-center hover:text-emerald-300 transition text-2xl"
+                  title="WhatsApp"
                 >
-                  wa.me/6285158032556
+                  <FaWhatsapp />
                 </a>
               </div>
             </div>
-            <div className="mt-8 italic">Coding with Soul, Building with Passion</div>
+            <div className="mt-8 italic">Where Code Meet Soul</div>
           </div>
         </div>
 
