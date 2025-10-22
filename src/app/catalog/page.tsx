@@ -93,7 +93,7 @@ export default function CatalogPage() {
         </div>
 
         {/* Services Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12 items-stretch">
           {loadingServices ? (
             <div className="col-span-full text-center py-12">
               <div className="text-slate-400">Loading services...</div>
