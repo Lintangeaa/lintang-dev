@@ -1,0 +1,33 @@
+{
+  "nav": {
+    "home": "Beranda",
+    "about": "Tentang",
+    "skills": "Keahlian",
+    "projects": "Proyek"
+  },
+  "brand": {
+    "name": "Lintang Dandung Prakoso",
+    "tagline": "Backend Developer & AI Engineer"
+  },
+  "meta": {
+    "title": "Lintang Dandung Prakoso | Backend Developer & AI Engineer",
+    "description": "Portofolio Lintang Dandung Prakoso — Backend Developer dan AI Engineer yang fokus membangun solusi teknologi yang efisien dan inovatif."
+  },
+  "sections": {
+    "about": "Tentang Saya",
+    "skills": "Keahlian",
+    "projects": "Proyek",
+    "viewProjects": "Lihat Proyek",
+    "learnMore": "Pelajari Lebih Lanjut"
+  },
+  "footer": {
+    "rights": "Hak cipta dilindungi."
+  },
+  "projects": {
+    "label": "Portofolio",
+    "title": "Proyek Unggulan",
+    "viewProject": "Lihat proyek",
+    "featured": "Unggulan",
+    "empty": "Belum ada proyek unggulan."
+  }
+}

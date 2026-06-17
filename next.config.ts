@@ -1,31 +1,21 @@
-import type { NextConfig } from "next";
+import type { NextConfig } from 'next';
+import createNextIntlPlugin from 'next-intl/plugin';
+
+const withNextIntl = createNextIntlPlugin('./src/i18n/request.ts');
 
 const nextConfig: NextConfig = {
-  // Turbopack configuration (Next.js 15+)
-  turbopack: {
-    // Basic configuration without custom loaders
-  },
-  
-  // Image optimization
   images: {
     formats: ['image/webp', 'image/avif'],
     minimumCacheTTL: 60,
+    remotePatterns: [
+      { protocol: 'https', hostname: 'image.soulcode.web.id' },
+      { protocol: 'https', hostname: 'images.unsplash.com' }
+    ]
   },
-  
-  // Compiler optimizations
   compiler: {
-    // Remove console.log in production
-    removeConsole: process.env.NODE_ENV === 'production',
+    removeConsole: process.env.NODE_ENV === 'production'
   },
-  
-  // Performance optimizations
-  poweredByHeader: false,
-  
-  // Experimental features
-  experimental: {
-    // Enable modern bundling for React Icons
-    optimizePackageImports: ['react-icons'],
-  },
+  poweredByHeader: false
 };
 
-export default nextConfig;
+export default withNextIntl(nextConfig);

@@ -1,0 +1,33 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "skills": "Skills",
+    "projects": "Projects"
+  },
+  "brand": {
+    "name": "Lintang Dandung Prakoso",
+    "tagline": "Backend Developer & AI Engineer"
+  },
+  "meta": {
+    "title": "Lintang Dandung Prakoso | Backend Developer & AI Engineer",
+    "description": "Portfolio of Lintang Dandung Prakoso — Backend Developer and AI Engineer focused on building efficient and innovative technology solutions."
+  },
+  "sections": {
+    "about": "About Me",
+    "skills": "Skills",
+    "projects": "Projects",
+    "viewProjects": "View Projects",
+    "learnMore": "Learn More"
+  },
+  "footer": {
+    "rights": "All rights reserved."
+  },
+  "projects": {
+    "label": "Portfolio",
+    "title": "Featured Projects",
+    "viewProject": "View project",
+    "featured": "Featured",
+    "empty": "No featured projects yet."
+  }
+}
